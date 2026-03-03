@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Use Impulso | Estrutura para Empresas em Crescimento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .fade-up-element {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            transform: translateY(20px);
+        }
+        .fade-up-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.05), 0 2px 4px -1px rgba(99, 102, 241, 0.03);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-premium {
+            background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+            box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.23);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 80px; /* Aumentado para melhor visibilidade */
+            width: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-indigo-100 selection:text-indigo-900">
+
+    <!-- Navegação -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
+        <div class="glass-panel mx-auto max-w-7xl px-6 py-3 mt-4 rounded-2xl flex justify-between items-center">
+            <div class="logo-container">
+                <!-- Logo Anexada -->
+                <img src="useimpulsonegativo.png" alt="Use Impulso" class="logo-img">
+            </div>
+            <div class="flex gap-8 text-sm font-medium text-slate-600">
+                <a href="#dor" class="hover:text-indigo-600 transition-colors">Por que a Use Impulso?</a>
+                <a href="#como-funciona" class="hover:text-indigo-600 transition-colors">Como Funciona</a>
+                <a href="#preco" class="hover:text-indigo-600 transition-colors">Planos</a>
+            </div>
+            <div class="w-10 md:hidden"></div> 
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section class="relative pt-40 pb-20 md:pt-48 md:pb-32 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-100/50 rounded-full blur-3xl -z-10 opacity-60"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="fade-up-element z-10">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6 text-slate-900">
+                    Estruture o crescimento da sua empresa <span class="text-gradient">antes que ele vire caos.</span>
+                </h1>
+                <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
+                    A Use Impulso organiza liderança, desenvolvimento e gestão de pessoas de forma simples — para que você cresça com maturidade, não com improviso.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                    <button class="btn-premium text-white px-8 py-4 rounded-xl font-medium text-lg flex items-center justify-center gap-2">
+                        🚀 Solicitar Acesso Antecipado
+                    </button>
+                    <button class="px-8 py-4 rounded-xl font-medium text-lg text-slate-700 border border-slate-200 hover:bg-white hover:border-slate-300 transition-all flex items-center justify-center">
+                        Agendar Demonstração
+                    </button>
+                </div>
+                <p class="text-xs text-slate-400 font-medium pl-2">
+                    Implantação assistida incluída. Sem burocracia.
+                </p>
+            </div>
+
+            <div class="relative animate-float fade-up-element delay-200">
+                <div class="glass-panel p-6 rounded-2xl shadow-2xl bg-white/80 relative z-20 transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                    <div class="flex gap-2 mb-4 border-b border-slate-100 pb-4">
+                        <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                        <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                        <div class="w-3 h-3 rounded-full bg-slate-200"></div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-sm font-semibold text-slate-700">Visão Geral da Liderança</h3>
+                            <p class="text-xs text-slate-400">Últimos 30 dias</p>
+                        </div>
+                        <div class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">+12% vs mês anterior</div>
+                    </div>
+
+                    <div class="chart-container h-64">
+                        <canvas id="heroChart"></canvas>
+                    </div>
+
+                    <div class="absolute -right-6 top-20 glass-panel p-4 rounded-xl shadow-lg animate-float" style="animation-delay: 1s;">
+                        <p class="text-xs text-slate-500 mb-1">PDI's Ativos</p>
+                        <p class="text-2xl font-bold text-indigo-600">94%</p>
+                    </div>
+                </div>
+                <div class="absolute -inset-4 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-2xl blur-2xl opacity-20 -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. A DOR REAL -->
+    <section id="dor" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up-element">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Sua empresa cresceu. <br/><span class="text-indigo-600">Sua gestão amadureceu?</span></h2>
+                <p class="text-slate-600 text-lg">
+                    A maioria das empresas cresce no faturamento antes de amadurecer na gestão de pessoas.
+                    O resultado é um crescimento frágil que depende 100% de você.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg transition-all group fade-up-element cursor-default">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">📉</div>
+                    <h3 class="font-bold text-slate-800 mb-2">1:1 que não viram ação</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Conversas soltas que não geram compromisso nem evolução real.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg transition-all group fade-up-element cursor-default delay-100">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">👻</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Planos Esquecidos</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">PDI's feitos em janeiro e esquecidos até dezembro.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg transition-all group fade-up-element cursor-default delay-200">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🏝️</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Férias com Conflito</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Surpresas na escala que comprometem entregas de clientes.</p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:border-indigo-100 hover:shadow-lg transition-all group fade-up-element cursor-default delay-300">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">🤯</div>
+                    <h3 class="font-bold text-slate-800 mb-2">Gestão sobrecaregada</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Toda decisão de gente e gestão acaba caindo no seu colo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. A VIRADA DE CHAVE -->
+    <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-900/30 rounded-full blur-3xl opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div class="fade-up-element">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">Maturidade não é burocracia. <br/><span class="text-indigo-400">É estrutura.</span></h2>
+                <p class="text-slate-300 text-lg mb-8 max-w-lg">
+                    A Use Impulso não é mais uma ferramenta de RH enterprise, é um sistema operacional leve que organiza o essencial para empresas.
+                </p>
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-bold mt-1">✓</div>
+                        <div>
+                            <h4 class="font-semibold text-white">Acompanhamento de Lideranças</h4>
+                            <p class="text-sm text-slate-400">Ative seus líderes em com pouco tempo por semana.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-xs font-bold mt-1">✓</div>
+                        <div>
+                            <h4 class="font-semibold text-white">Planos Individuais Claros</h4>
+                            <p class="text-sm text-slate-400">Objetivos reais que o time quer preencher.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative fade-up-element delay-200">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 backdrop-blur-sm hover:bg-slate-800 transition-colors">
+                        <div class="text-indigo-400 text-2xl mb-2">⚡</div>
+                        <h4 class="font-bold mb-1">Ágil</h4>
+                        <p class="text-xs text-slate-400">Implementação em dias, não meses.</p>
+                    </div>
+                    <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700 backdrop-blur-sm hover:bg-slate-800 transition-colors mt-8">
+                        <div class="text-indigo-400 text-2xl mb-2">🎯</div>
+                        <h4 class="font-bold mb-1">Focado</h4>
+                        <p class="text-xs text-slate-400">Apenas o que sua empresa precisa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COMO FUNCIONA -->
+    <section id="como-funciona" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-up-element">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Estrutura simples. Impacto real.</h2>
+                <p class="text-slate-500">Três passos para sair do caos operacional.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-slate-100 -z-10"></div>
+
+                <div class="text-center group fade-up-element">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:border-indigo-100 group-hover:scale-110 transition-all z-10 relative">
+                        <span class="text-4xl">🗓️</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Estruture as 1:1</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed px-6">
+                        O sistema sugere pautas e registra ações automaticamente. Adeus, caderninhos perdidos e esquecimento.
+                    </p>
+                </div>
+
+                <div class="text-center group fade-up-element delay-100">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:border-indigo-100 group-hover:scale-110 transition-all z-10 relative">
+                        <span class="text-4xl">🚀</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Ative planos claros</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed px-6">
+                        Defina objetivos reais e acompanhe a evolução de carreira. Motive o talento e proteja a sua empresa.
+                    </p>
+                </div>
+
+                <div class="text-center group fade-up-element delay-200">
+                    <div class="w-24 h-24 bg-white border-4 border-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:border-indigo-100 group-hover:scale-110 transition-all z-10 relative">
+                        <span class="text-4xl">🔄</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Sustente consistência</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed px-6">
+                        Automação leve mantém a liderança ativa. Lembretes inteligentes garantem que a rotina não esfrie.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-50 pt-16 pb-8 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="logo-container mb-6 md:mb-0">
+                    <!-- Logo Anexada no Rodapé -->
+                    <img src="useimpulsonegativo.png" alt="Use Impulso" class="logo-img">
+                </div>
+                <div class="flex gap-8 text-sm text-slate-500">
+                    <a href="#" class="hover:text-indigo-600">Sobre</a>
+                    <a href="#" class="hover:text-indigo-600">Blog</a>
+                    <a href="#" class="hover:text-indigo-600">Privacidade</a>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-slate-400 pt-8 border-t border-slate-200">
+                <p>&copy; 2026 Use Impulso SaaS. Feito no Brasil 🇧🇷</p>
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span>Sistemas em operação</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar Scroll Effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.querySelector('.glass-panel').classList.add('bg-white/90', 'shadow-md');
+                else navbar.querySelector('.glass-panel').classList.remove('bg-white/90', 'shadow-md');
+            });
+
+            // Fade Up Elements
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-up-element').forEach(el => observer.observe(el));
+
+            // Hero Chart
+            const heroCtx = document.getElementById('heroChart').getContext('2d');
+            new Chart(heroCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Sem 1', 'Sem 2', 'Sem 3', 'Sem 4'],
+                    datasets: [{
+                        data: [45, 59, 72, 85],
+                        borderColor: '#6366f1',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        fill: false,
+                        pointRadius: 4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+            });
+        });
+    </script>
+</body>
+</html>
