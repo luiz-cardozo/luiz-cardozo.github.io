@@ -87,7 +87,7 @@
         }
 
         .logo-img {
-            height: 80px; /* Aumentado para melhor visibilidade */
+            height: 40px;
             width: auto;
             display: block;
         }
@@ -99,7 +99,6 @@
     <nav class="fixed w-full z-50 top-0 transition-all duration-300" id="navbar">
         <div class="glass-panel mx-auto max-w-7xl px-6 py-3 mt-4 rounded-2xl flex justify-between items-center">
             <div class="logo-container">
-                <!-- Logo Anexada -->
                 <img src="useimpulsonegativo.png" alt="Use Impulso" class="logo-img">
             </div>
             <div class="flex gap-8 text-sm font-medium text-slate-600">
@@ -291,12 +290,58 @@
         </div>
     </section>
 
+    <!-- 6. PRECIFICAÇÃO (RESTAURADA) -->
+    <section id="preco" class="py-24 bg-slate-50">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-slate-900 mb-4 fade-up-element">Simples, proporcional ao seu time.</h2>
+            <p class="text-slate-500 mb-12 fade-up-element">Transparência total. Sem contratos longos.</p>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden fade-up-element delay-100">
+                <div class="p-8 border-b border-slate-100">
+                    <p class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Estimativa de Investimento</p>
+                    
+                    <div class="my-8">
+                        <label for="teamSize" class="block text-slate-700 font-medium mb-4">Qual o tamanho do seu time?</label>
+                        <input type="range" id="teamSize" min="10" max="50" step="1" value="25" 
+                            class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                        <div class="flex justify-between text-xs text-slate-400 mt-2">
+                            <span>10 pessoas</span>
+                            <span class="font-bold text-indigo-600 text-lg" id="teamDisplay">25 pessoas</span>
+                            <span>50 pessoas</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-baseline justify-center gap-1">
+                        <span class="text-4xl font-bold text-slate-900" id="priceDisplay">R$ 590</span>
+                        <span class="text-slate-500">/mês</span>
+                    </div>
+                </div>
+                
+                <div class="p-8 bg-slate-50">
+                    <ul class="space-y-3 text-sm text-left max-w-xs mx-auto text-slate-600 mb-8">
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">✓</span> Acesso completo à plataforma Use Impulso
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">✓</span> <strong>Implantação Consultiva Incluída</strong>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-green-500">✓</span> Suporte humanizado
+                        </li>
+                    </ul>
+                    <button class="w-full btn-premium text-white py-4 rounded-xl font-bold hover:shadow-lg transition-all">
+                        Quero estruturar minha empresa
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="bg-slate-50 pt-16 pb-8 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center mb-12">
                 <div class="logo-container mb-6 md:mb-0">
-                    <!-- Logo Anexada no Rodapé -->
                     <img src="useimpulsonegativo.png" alt="Use Impulso" class="logo-img">
                 </div>
                 <div class="flex gap-8 text-sm text-slate-500">
@@ -333,6 +378,21 @@
                 });
             }, { threshold: 0.1 });
             document.querySelectorAll('.fade-up-element').forEach(el => observer.observe(el));
+
+            // Pricing Slider Logic
+            const slider = document.getElementById('teamSize');
+            const teamDisplay = document.getElementById('teamDisplay');
+            const priceDisplay = document.getElementById('priceDisplay');
+
+            if (slider) {
+                slider.addEventListener('input', (e) => {
+                    const count = e.target.value;
+                    teamDisplay.textContent = `${count} pessoas`;
+                    // Lógica simples de preço: Base R$ 200 + R$ 15 por pessoa
+                    const price = 70 + (count * 15);
+                    priceDisplay.textContent = `R$ ${price}`;
+                });
+            }
 
             // Hero Chart
             const heroCtx = document.getElementById('heroChart').getContext('2d');
